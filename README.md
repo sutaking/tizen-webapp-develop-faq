@@ -11,11 +11,11 @@
 CAPH is a web application framework which helps in easy and quick development of web apps for Samsung Smart TV. Impressive applications can be developed with the usage of CAPH. You can develop high performance web application with CAPH.
 
 CAPH 3.0 works on jQuery, AngularJS (1.x).
-<img align="right" src="./assets/22552486.png">
+![img](./assets/22552486.png)
 <br>
 
 CAPH 3.0 Modules.<br>
-<img align="right" src="./assets/22552473.png">
+![img](./assets/22552473.png)
 ## Offical Homepage Doc
 -   [Offical Homepage](https://developer.samsung.com/onlinedocs/tv/caphdocs/index.html)
 - [Getting started](https://developer.samsung.com/onlinedocs/tv/caphdocs/main.html?type=angular&doc=tutorial&p1=0)
