@@ -30,5 +30,6 @@ CAPH 3.0 Modules.<br>
 
 ## Developing Notes
 
+-   [Using vscode extension to quick build caph3 app]()
 -   [caph-list can not using ng-loop](./posts/caph-list.md)
 
