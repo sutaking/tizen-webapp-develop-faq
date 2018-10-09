@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <title>Angular Dropdown List Sample</title>
+    <link href="caph.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="caph-angular.min.js"></script>
+    
+    <style>
+        ul.sample-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul.sample-list li {
+            padding: 5px;
+            display: -webkit-box;
+            font-size: 20px;
+        }
+    </style>
+      
+</head>
+<body>
+<div id="testsuite-menu"></div>
+<div id="testsuite-contents">
+    <div ng-controller="ctrl">
+        <ul class="sample-list">
+            
+            <li> Style Color will change by selected. </li>
+            <li>
+                <caph-dropdown-list focus-option="{depth: 0}" items="list3.items" on-select-item="selectItem($itemId, $event)" ng-cloak>
+                    <caph-dropdown-list-placeholder-template>
+                        <div class="textbox"><div class="label">Change Color</div></div>
+                        <div class="button"><div class="label">▽</div></div>
+                    </caph-dropdown-list-placeholder-template>
+                    <caph-dropdown-list-item-template>{{content}}</caph-dropdown-list-item-template>
+                </caph-dropdown-list>
+            </li>
+            <li id="info-text"><span ng-if="selectedItemName"><span >'{{selectedItemName}}'</span> is selected.</span></li>
+        </ul>
+    </div>
+</div>
+<script>
+    (function () {
+        'use strict';
+        angular.module('myApp', ['caph.ui', 'caph.focus'])
+            .config(['focusControllerProvider',function(focusControllerProvider){
+                focusControllerProvider.setInitialDepth(0);
+            }])
+            .controller('ctrl', ['$scope', '$timeout', 'focusController', function($scope, $timeout, focusController) {
+
+
+                $scope.list3 = {
+                    items: [
+                        {id: 'red', content: 'RED'},
+                        {id: 'blue', content: 'BLUE'},
+                        {id: 'green', content: 'GREEN'},
+                        {id: 'yellow', content: 'YELLOW'},
+                        {id: 'black', content: 'BLACK'}
+                    ]
+                };
+
+                $scope.selectItem = function($itemId, $event) {
+                    
+                    console.log(`selectItem: ${$itemId}`);
+
+                    $('.placeholder').css('background-color', $itemId);
+                    $('#info-text').css('color', $itemId);
+                    $scope.selectedItemName = $itemId;
+                };
+        }]);
+    })();
+</script>
+</body>
+</html>
